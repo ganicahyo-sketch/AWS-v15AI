@@ -232,7 +232,7 @@ public class MainActivity extends Activity {
                 String updated = java.time.ZonedDateTime.now(WIB).format(DateTimeFormatter.ofPattern("dd/MM HH:mm:ss", Locale.US));
                 main.post(() -> {
                     weatherStatus.setText("ONLINE • OPENWEATHER ONE CALL 4.0"); weatherStatus.setTextColor(Color.rgb(69,212,131));
-                    weatherLocation.setText(place + " • elevasi DEM " + (Double.isFinite(elevation) ? fmt(elevation,0) + " mdpl" : "--") + " • GPS altitude HP diabaikan");
+                    weatherLocation.setText(place + " • elevasi DEM " + (Double.isFinite(elevation) ? fmt(elevationForUi,0) + " mdpl" : "--") + " • GPS altitude HP diabaikan");
                     weatherTemp.setText("Suhu "+fmt(temp,1)+" °C"); weatherFeels.setText("Terasa "+fmt(feels,1)+" °C"); weatherDew.setText("Titik embun "+fmt(dew,1)+" °C");
                     weatherHumidity.setText("RH "+fmt(rh,0)+" %"); weatherPressure.setText("Tekanan "+fmt(pressure,0)+" hPa"); weatherCloud.setText("Awan "+fmt(cloud,0)+" %");
                     weatherUv.setText("UV "+fmt(uv,1)); weatherVisibility.setText("Visibilitas "+fmt(vis/1000.0,1)+" km");
