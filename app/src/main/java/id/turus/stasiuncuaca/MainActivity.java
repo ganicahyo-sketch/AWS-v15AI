@@ -221,6 +221,7 @@ public class MainActivity extends Activity {
                     prefs.edit().putFloat("last_elevation_m", (float)elevation).apply();
                 }
                 double et0 = calculateDailyEt0_4(dailyData, lat, Double.isFinite(elevation) ? elevation : 0);
+                final double elevationForUi = elevation;
                 String windText = fmt(ws,1)+" m/s ("+fmt(ws*3.6,1)+" km/j)" + (Double.isFinite(wg)?" • gust "+fmt(wg,1)+" m/s":"");
                 String dir = Double.isFinite(wd) ? fmt(wd,0)+"° "+windDirection(wd) : "--";
                 String rainText = fmt(rain,1)+" mm/jam" + (snow > 0 ? " • salju "+fmt(snow,1)+" mm/jam" : "");
