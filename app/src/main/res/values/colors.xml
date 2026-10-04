@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="navy_950">#07131F</color>
+    <color name="navy_900">#0B1D2A</color>
+    <color name="navy_800">#102B3C</color>
+    <color name="panel">#122B3B</color>
+    <color name="panel_2">#173546</color>
+    <color name="cyan">#29C6C7</color>
+    <color name="amber">#F3B64A</color>
+    <color name="text_main">#F4F7F9</color>
+    <color name="text_muted">#9DB0BC</color>
+    <color name="green">#45D483</color>
+    <color name="red">#FF6B6B</color>
+    <color name="white">#FFFFFF</color>
+</resources>

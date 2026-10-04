@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true"
+    android:background="@drawable/bg_root">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="14dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:paddingBottom="10dp">
+
+            <TextView
+                android:id="@+id/back"
+                android:layout_width="42dp"
+                android:layout_height="42dp"
+                android:gravity="center"
+                android:text="‹"
+                android:textColor="@color/text_main"
+                android:textSize="30sp"
+                android:background="@drawable/bg_chip"/>
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_marginStart="10dp"
+                android:text="UNDUH DATA CSV"
+                android:textColor="@color/text_main"
+                android:textStyle="bold"
+                android:textSize="18sp"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_panel"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="SUMBER DATA THINGSPEAK"
+                android:textColor="@color/cyan"
+                android:textStyle="bold"
+                android:textSize="11sp"
+                android:letterSpacing="0.12"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="7dp"
+                android:text="Pilih mode unduhan"
+                android:textColor="@color/text_muted"
+                android:textSize="11sp"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="44dp"
+                android:layout_marginTop="8dp"
+                android:background="@drawable/bg_edit"
+                android:gravity="center_vertical">
+
+                <TextView
+                    android:id="@+id/modeRange"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="RENTANG WAKTU"
+                    android:textColor="@color/text_main"
+                    android:textStyle="bold"
+                    android:textSize="11sp"/>
+
+                <TextView
+                    android:id="@+id/modeAllHistory"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="SELURUH HISTORI"
+                    android:textColor="@color/text_muted"
+                    android:textStyle="bold"
+                    android:textSize="11sp"/>
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/historyInfo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="9dp"
+                android:text="RENTANG WAKTU: pilih tanggal mulai dan akhir."
+                android:textColor="@color/text_muted"
+                android:textSize="11sp"/>
+
+            <LinearLayout
+                android:id="@+id/rangePanel"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="9dp"
+                    android:text="Tanggal mulai"
+                    android:textColor="@color/text_muted"
+                    android:textSize="11sp"/>
+
+                <TextView
+                    android:id="@+id/startDate"
+                    android:layout_width="match_parent"
+                    android:layout_height="44dp"
+                    android:gravity="center_vertical"
+                    android:paddingStart="12dp"
+                    android:text="---- -- --"
+                    android:textColor="@color/text_main"
+                    android:textSize="16sp"
+                    android:background="@drawable/bg_edit"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:text="Tanggal akhir"
+                    android:textColor="@color/text_muted"
+                    android:textSize="11sp"/>
+
+                <TextView
+                    android:id="@+id/endDate"
+                    android:layout_width="match_parent"
+                    android:layout_height="44dp"
+                    android:gravity="center_vertical"
+                    android:paddingStart="12dp"
+                    android:text="---- -- --"
+                    android:textColor="@color/text_main"
+                    android:textSize="16sp"
+                    android:background="@drawable/bg_edit"/>
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/downloadButton"
+                android:layout_width="match_parent"
+                android:layout_height="46dp"
+                android:layout_marginTop="16dp"
+                android:gravity="center"
+                android:text="UNDUH DATA CSV"
+                android:textColor="@color/navy_950"
+                android:textStyle="bold"
+                android:textSize="11sp"
+                android:background="@drawable/bg_button"/>
+
+            <TextView
+                android:id="@+id/csvStatus"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:text="Pilih mode kemudian unduh."
+                android:textColor="@color/text_muted"
+                android:textSize="12sp"/>
+        </LinearLayout>
+    </LinearLayout>
+</ScrollView>
