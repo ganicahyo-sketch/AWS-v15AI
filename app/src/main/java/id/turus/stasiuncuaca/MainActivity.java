@@ -25,6 +25,7 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 
 import java.io.BufferedReader;
+import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.OutputStream;
@@ -244,7 +245,57 @@ public class MainActivity extends Activity {
             }
         });
     }
+/**
+ * HTTP GET helper for JSON APIs used by OpenWeather 4.0 and elevation services.
+ * Runs on the background ExecutorService, so network I/O never blocks the UI thread.
+ */
+private JSONObject getJson(String urlString) throws Exception {
+    HttpURLConnection connection = null;
 
+    try {
+        URL url = new URL(urlString);
+        connection = (HttpURLConnection) url.openConnection();
+
+        connection.setRequestMethod("GET");
+        connection.setConnectTimeout(15000);
+        connection.setReadTimeout(20000);
+        connection.setUseCaches(false);
+        connection.setRequestProperty("Accept", "application/json");
+
+        int responseCode = connection.getResponseCode();
+
+        InputStream stream =
+                (responseCode >= 200 && responseCode < 300)
+                        ? connection.getInputStream()
+                        : connection.getErrorStream();
+
+        String body = readAll(stream);
+
+        if (responseCode < 200 || responseCode >= 300) {
+            String detail = body == null ? "" : body.trim();
+
+            if (detail.length() > 500) {
+                detail = detail.substring(0, 500);
+            }
+
+            throw new IOException(
+                    "HTTP " + responseCode +
+                    (detail.isEmpty() ? "" : " — " + detail)
+            );
+        }
+
+        if (body == null || body.trim().isEmpty()) {
+            throw new IOException("Respons JSON kosong.");
+        }
+
+        return new JSONObject(body);
+
+    } finally {
+        if (connection != null) {
+            connection.disconnect();
+        }
+    }
+}
     /**
      * Terrain elevation from Open-Meteo Elevation API (Copernicus GLO-90, ~90 m).
      * We intentionally do not use Location.getAltitude() because many phones return
